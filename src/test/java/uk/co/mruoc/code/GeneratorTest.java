@@ -6,6 +6,8 @@ import org.junit.Test;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 public class GeneratorTest {
 
@@ -22,7 +24,13 @@ public class GeneratorTest {
             .addFieldDefinition("balance", BigDecimal.class)
             .addFieldDefinition("doubleVal", double.class)
             .addFieldDefinition("integerVal", Integer.class)
-            .addFieldDefinition("floatVal", float.class);
+            .addFieldDefinition("floatVal", float.class)
+            .addFieldDefinition("shortVal", Short.class)
+            .addFieldDefinition("charVal", char.class)
+            .addFieldDefinition("byteVal", Byte.class)
+            .addFieldDefinition("object", Object.class)
+            .addFieldDefinition("date", Date.class)
+            .addFieldDefinition("localDateTime", LocalDateTime.class);
 
     private final Generator builderGenerator = new BuilderGenerator(params);
     private final Generator dtoGenerator = new DtoGenerator(params);
