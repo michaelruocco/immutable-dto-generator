@@ -20,4 +20,8 @@ public class FieldDefinition {
         return type;
     }
 
+    public boolean hasType(Type otherType) {
+        return type.getTypeName().equals(otherType.getTypeName());
+    }
+
 }

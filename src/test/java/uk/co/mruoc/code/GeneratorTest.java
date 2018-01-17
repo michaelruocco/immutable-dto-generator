@@ -4,6 +4,8 @@ import com.squareup.javapoet.JavaFile;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class GeneratorTest {
 
@@ -12,8 +14,15 @@ public class GeneratorTest {
             .setDtoClassName("CustomerDto")
             .setBuilderClassName("CustomerDtoBuilder")
             .setTestClassName("CustomerDtoTest")
+            .addFieldDefinition("id", long.class)
             .addFieldDefinition("firstName", String.class)
-            .addFieldDefinition("lastName", String.class);
+            .addFieldDefinition("lastName", String.class)
+            .addFieldDefinition("dateOfBirth", LocalDate.class)
+            .addFieldDefinition("premium", boolean.class)
+            .addFieldDefinition("balance", BigDecimal.class)
+            .addFieldDefinition("doubleVal", double.class)
+            .addFieldDefinition("integerVal", Integer.class)
+            .addFieldDefinition("floatVal", float.class);
 
     private final Generator builderGenerator = new BuilderGenerator(params);
     private final Generator dtoGenerator = new DtoGenerator(params);

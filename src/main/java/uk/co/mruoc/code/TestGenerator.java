@@ -1,11 +1,13 @@
 package uk.co.mruoc.code;
 
 import com.squareup.javapoet.*;
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import javax.lang.model.element.Modifier;
 import java.util.List;
 
+import static java.beans.Introspector.*;
 import static org.apache.commons.lang3.StringUtils.capitalize;
 
 public class TestGenerator implements Generator {
@@ -16,6 +18,8 @@ public class TestGenerator implements Generator {
     private final ClassName testClassName;
     private final List<FieldDefinition> fieldDefinitions;
 
+    private final AssignVariableDefinitionFactory assignVariableFactory;
+    private final AssertVariableDefinitionFactory assertVariableFactory;
 
     public TestGenerator(GenerationParams params) {
         this.packageName = params.getPackageName();
@@ -23,6 +27,9 @@ public class TestGenerator implements Generator {
         this.builderClassName = ClassName.get(packageName, params.getBuilderClassName());
         this.testClassName = ClassName.get(packageName, params.getTestClassName());
         this.fieldDefinitions = params.getFieldDefinitions();
+
+        this.assignVariableFactory = new AssignVariableDefinitionFactory();
+        this.assertVariableFactory = new AssertVariableDefinitionFactory(dtoClassName);
     }
 
     @Override
@@ -37,17 +44,25 @@ public class TestGenerator implements Generator {
             type.addMethod(generateFieldTest(field));
         }
 
-        return JavaFile.builder(packageName, type.build()).build();
+        return JavaFile.builder(packageName, type.build())
+                .addStaticImport(Assertions.class, "assertThat")
+                .build();
     }
 
     private MethodSpec generateFieldTest(FieldDefinition field) {
-        return MethodSpec.methodBuilder("shouldSet" + capitalize(field.getName()))
+        String fieldName = capitalize(field.getName());
+        String dtoVariableName = decapitalize(dtoClassName.simpleName());
+        StatementDefinition assignStatement = assignVariableFactory.get(field);
+        StatementDefinition assertStatement = assertVariableFactory.get(field);
+        return MethodSpec.methodBuilder("shouldSet" + fieldName)
                 .addAnnotation(Test.class)
                 .returns(void.class)
                 .addModifiers(Modifier.PUBLIC)
-                .addStatement("$T $N = $S", field.getType(), field.getName(), field.getName())
-                .addStatement("$T $N = builder.set$N($N).build()", builderClassName, dtoClassName.simpleName(), capitalize(field.getName()), field.getName())
+                .addStatement(assignStatement.getFormat(), assignStatement.getArgs())
+                .addStatement("$T $N = builder.set$N($N).build()",  dtoClassName, dtoVariableName, fieldName, field.getName())
+                .addStatement(assertStatement.getFormat(), assertStatement.getArgs())
                 .build();
     }
+
 
 }
