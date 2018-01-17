@@ -43,9 +43,12 @@ public class AssignVariableDefinitionFactory {
         } else if (field.hasType(LocalDateTime.class)) {
             return new AssignLocalDateTimeVariableDefinition(field);
 
+        } else if (field.typeHasPublicNoArgumentConstructor()) {
+            return new AssignObjectVariableDefinition(field);
+
         }
 
-        return new AssignObjectVariableDefinition(field);
+        return new AssignMockedObjectVariableDefinition(field);
     }
 
 }

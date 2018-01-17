@@ -9,6 +9,8 @@ import static org.apache.commons.lang3.StringUtils.capitalize;
 
 public class BuilderGenerator implements Generator {
 
+    private final GetterMethodNameBuilder getterMethodNameBuilder = new GetterMethodNameBuilder();
+
     private final String packageName;
     private final ClassName dtoClassName;
     private final ClassName builderClassName;
@@ -44,7 +46,7 @@ public class BuilderGenerator implements Generator {
 
     private MethodSpec generateGetter(FieldDefinition field) {
         String name = field.getName();
-        return MethodSpec.methodBuilder("get" + capitalize(name))
+        return MethodSpec.methodBuilder(getterMethodNameBuilder.build(field))
                 .addModifiers(Modifier.PUBLIC)
                 .returns(field.getType())
                 .addStatement("return $N", name)

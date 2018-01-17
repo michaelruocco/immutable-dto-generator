@@ -1,6 +1,7 @@
 package uk.co.mruoc.code;
 
 import com.squareup.javapoet.ClassName;
+import org.assertj.core.api.Assertions;
 
 import static java.beans.Introspector.decapitalize;
 import static org.apache.commons.lang3.StringUtils.capitalize;

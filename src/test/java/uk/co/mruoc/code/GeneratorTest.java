@@ -2,17 +2,23 @@ package uk.co.mruoc.code;
 
 import com.squareup.javapoet.JavaFile;
 import org.junit.Test;
+import uk.co.mruoc.dto.MyCustomClass;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
 public class GeneratorTest {
 
+    private final Path sourcePath = Paths.get("", "src/main/java/");
+    private final Path testPath = Paths.get("", "src/test/java/");
+
     private final GenerationParams params = new DefaultGenerationParams()
-            .setPackageName("uk.co.mruoc.generated")
+            .setPackageName("uk.co.mruoc.dto")
             .setDtoClassName("CustomerDto")
             .setBuilderClassName("CustomerDtoBuilder")
             .setTestClassName("CustomerDtoTest")
@@ -30,7 +36,8 @@ public class GeneratorTest {
             .addFieldDefinition("byteVal", Byte.class)
             .addFieldDefinition("object", Object.class)
             .addFieldDefinition("date", Date.class)
-            .addFieldDefinition("localDateTime", LocalDateTime.class);
+            .addFieldDefinition("localDateTime", LocalDateTime.class)
+            .addFieldDefinition("customClass", MyCustomClass.class);
 
     private final Generator builderGenerator = new BuilderGenerator(params);
     private final Generator dtoGenerator = new DtoGenerator(params);
@@ -40,18 +47,21 @@ public class GeneratorTest {
     public void showGeneratedBuilderCode() throws IOException {
         JavaFile javaFile = builderGenerator.generate();
         javaFile.writeTo(System.out);
+        javaFile.writeTo(sourcePath);
     }
 
     @Test
     public void showGeneratedDtoCode() throws IOException {
         JavaFile javaFile = dtoGenerator.generate();
         javaFile.writeTo(System.out);
+        javaFile.writeTo(sourcePath);
     }
 
     @Test
     public void showGeneratedTestCode() throws IOException {
         JavaFile javaFile = testGenerator.generate();
         javaFile.writeTo(System.out);
+        javaFile.writeTo(testPath);
     }
 
 }

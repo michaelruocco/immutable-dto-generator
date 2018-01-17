@@ -6,10 +6,9 @@ import javax.lang.model.element.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.apache.commons.lang3.StringUtils.capitalize;
-
 public class DtoGenerator implements Generator {
 
+    private final GetterMethodNameBuilder getterMethodNameBuilder = new GetterMethodNameBuilder();
     private final String packageName;
     private final ClassName dtoClassName;
     private final ClassName builderClassName;
@@ -42,8 +41,8 @@ public class DtoGenerator implements Generator {
         MethodSpec.Builder constructor = MethodSpec.constructorBuilder()
                 .addModifiers(Modifier.PUBLIC)
                 .addParameter(builderClassName, "builder");
-        for (FieldDefinition fieldDefinition : fieldDefinitions) {
-            constructor.addStatement("this.$N = builder.get$N()", fieldDefinition.getName(), capitalize(fieldDefinition.getName()));
+        for (FieldDefinition field : fieldDefinitions) {
+            constructor.addStatement("this.$N = builder.$N()", field.getName(), getterMethodNameBuilder.build(field));
         }
         return constructor.build();
     }
@@ -56,7 +55,7 @@ public class DtoGenerator implements Generator {
 
     private MethodSpec generateGetter(FieldDefinition field) {
         String name = field.getName();
-        return MethodSpec.methodBuilder("get" + capitalize(name))
+        return MethodSpec.methodBuilder(getterMethodNameBuilder.build(field))
                 .addModifiers(Modifier.PUBLIC)
                 .returns(field.getType())
                 .addStatement("return $N", name)

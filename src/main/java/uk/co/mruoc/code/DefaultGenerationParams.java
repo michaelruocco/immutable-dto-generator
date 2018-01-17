@@ -57,7 +57,7 @@ public class DefaultGenerationParams implements GenerationParams {
         return this;
     }
 
-    public DefaultGenerationParams addFieldDefinition(String name, Type type) {
+    public DefaultGenerationParams addFieldDefinition(String name, Class<?> type) {
         return addFieldDefinition(new FieldDefinition(name, type));
     }
 
