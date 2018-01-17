@@ -1,5 +1,6 @@
 package uk.co.mruoc.code;
 
+import java.nio.file.Path;
 import java.util.List;
 
 public interface GenerationParams {

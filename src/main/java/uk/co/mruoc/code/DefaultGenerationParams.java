@@ -1,6 +1,7 @@
 package uk.co.mruoc.code;
 
-import java.lang.reflect.Type;
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,11 +25,17 @@ public class DefaultGenerationParams implements GenerationParams {
 
     @Override
     public String getBuilderClassName() {
+        if (StringUtils.isEmpty(builderClassName)) {
+            return dtoClassName + "Builder";
+        }
         return builderClassName;
     }
 
     @Override
     public String getTestClassName() {
+        if (StringUtils.isEmpty(builderClassName)) {
+            return dtoClassName + "Test";
+        }
         return testClassName;
     }
 
