@@ -2,7 +2,6 @@ package uk.co.mruoc.code;
 
 import com.squareup.javapoet.JavaFile;
 import org.junit.Test;
-import uk.co.mruoc.dto.MyCustomClass;
 
 import java.io.IOException;
 import java.math.BigDecimal;
