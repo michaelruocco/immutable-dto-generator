@@ -1,7 +1,6 @@
 package uk.co.mruoc.code;
 
 import com.squareup.javapoet.*;
-import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
 import javax.lang.model.element.Modifier;
@@ -35,19 +34,20 @@ public class TestGenerator implements Generator {
                 .build());
 
         for (FieldDefinition field : fieldDefinitions) {
-            MethodSpec toString = MethodSpec.methodBuilder("shouldSet" + capitalize(field.getName()))
-                    .addAnnotation(Test.class)
-                    .returns(void.class)
-                    .addModifiers(Modifier.PUBLIC)
-                    .addStatement("return $S", "Hoverboard")
-                    .build();
+            type.addMethod(generateFieldTest(field));
         }
 
         return JavaFile.builder(packageName, type.build()).build();
     }
 
-    private FieldSpec generateField(FieldDefinition field) {
-        return FieldSpec.builder(field.getType(), field.getName()).addModifiers(Modifier.PRIVATE).build();
+    private MethodSpec generateFieldTest(FieldDefinition field) {
+        return MethodSpec.methodBuilder("shouldSet" + capitalize(field.getName()))
+                .addAnnotation(Test.class)
+                .returns(void.class)
+                .addModifiers(Modifier.PUBLIC)
+                .addStatement("$T $N = $S", field.getType(), field.getName(), field.getName())
+                .addStatement("$T $N = builder.set$N($N).build()", builderClassName, dtoClassName.simpleName(), capitalize(field.getName()), field.getName())
+                .build();
     }
 
 }
