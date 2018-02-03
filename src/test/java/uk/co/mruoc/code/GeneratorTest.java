@@ -38,7 +38,7 @@ public class GeneratorTest {
     private final FilesGenerator generator = new FilesGenerator(mainSourcePath, testSourcePath, params);
 
     @Test
-    public void generateFiles() throws IOException {
+    public void generateFiles() {
         generator.generate();
     }
 
