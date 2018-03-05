@@ -6,7 +6,8 @@ public class GetterMethodNameBuilder {
 
     public String build(FieldDefinition field) {
         String name = capitalize(field.getName());
-        if (field.hasType(Boolean.class) || field.hasType(boolean.class)) {
+        //if (field.hasType(Boolean.class) || field.hasType(boolean.class)) {
+        if (field.isBoolean()) {
             return "is" + name;
         }
         return "get" + name;

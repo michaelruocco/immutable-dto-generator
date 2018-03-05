@@ -1,5 +1,6 @@
 package uk.co.mruoc.code;
 
+import com.squareup.javapoet.TypeName;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -7,11 +8,13 @@ import java.util.List;
 
 public class DefaultGenerationParams implements GenerationParams {
 
+    private final StringToTypeNameConverter typeNameConverter = new StringToTypeNameConverter();
+    private final List<FieldDefinition> fieldDefinitions = new ArrayList<>();
+
     private String packageName;
     private String dtoClassName;
     private String builderClassName;
     private String testClassName;
-    private List<FieldDefinition> fieldDefinitions = new ArrayList<>();
 
     @Override
     public String getPackageName() {
@@ -65,6 +68,14 @@ public class DefaultGenerationParams implements GenerationParams {
     }
 
     public DefaultGenerationParams addFieldDefinition(String name, Class<?> type) {
+        return addFieldDefinition(new FieldDefinition(name, type));
+    }
+
+    public DefaultGenerationParams addFieldDefinition(String name, String typeString) {
+        return addFieldDefinition(new FieldDefinition(name, typeString));
+    }
+
+    public DefaultGenerationParams addFieldDefinition(String name, TypeName type) {
         return addFieldDefinition(new FieldDefinition(name, type));
     }
 

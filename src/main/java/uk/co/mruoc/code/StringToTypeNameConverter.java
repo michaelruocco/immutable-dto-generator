@@ -9,14 +9,14 @@ public class StringToTypeNameConverter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(StringToTypeNameConverter.class);
 
-    public TypeName toTypeName(final String value) {
+    public static TypeName toTypeName(final String value) {
         String sanitizedValue = StringUtils.deleteWhitespace(value);
         LOGGER.debug("sanitized value " + sanitizedValue);
         TreeNode tree = buildTree(sanitizedValue);
         return tree.toTypeName();
     }
 
-    private TreeNode buildTree(final String value) {
+    private static TreeNode buildTree(final String value) {
         TreeNode root = new TreeNode();
         TreeNode currentNode = root;
         LOGGER.debug("root " + root);

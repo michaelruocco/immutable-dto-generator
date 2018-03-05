@@ -22,6 +22,78 @@ public class StringToTypeNameConverterTest {
     }
 
     @Test
+    public void shouldConvertPrimitiveIntValue() {
+        String name = "int";
+
+        TypeName type = converter.toTypeName(name);
+
+        assertThat(type.toString()).isEqualTo(name);
+    }
+
+    @Test
+    public void shouldConvertPrimitiveByteValue() {
+        String name = "byte";
+
+        TypeName type = converter.toTypeName(name);
+
+        assertThat(type.toString()).isEqualTo(name);
+    }
+
+    @Test
+    public void shouldConvertPrimitiveShortValue() {
+        String name = "short";
+
+        TypeName type = converter.toTypeName(name);
+
+        assertThat(type.toString()).isEqualTo(name);
+    }
+
+    @Test
+    public void shouldConvertPrimitiveLongValue() {
+        String name = "long";
+
+        TypeName type = converter.toTypeName(name);
+
+        assertThat(type.toString()).isEqualTo(name);
+    }
+
+    @Test
+    public void shouldConvertPrimitiveFloatValue() {
+        String name = "float";
+
+        TypeName type = converter.toTypeName(name);
+
+        assertThat(type.toString()).isEqualTo(name);
+    }
+
+    @Test
+    public void shouldConvertPrimitiveDoubleValue() {
+        String name = "double";
+
+        TypeName type = converter.toTypeName(name);
+
+        assertThat(type.toString()).isEqualTo(name);
+    }
+
+    @Test
+    public void shouldConvertPrimitiveBooleanValue() {
+        String name = "boolean";
+
+        TypeName type = converter.toTypeName(name);
+
+        assertThat(type.toString()).isEqualTo(name);
+    }
+
+    @Test
+    public void shouldConvertPrimitiveCharValue() {
+        String name = "char";
+
+        TypeName type = converter.toTypeName(name);
+
+        assertThat(type.toString()).isEqualTo(name);
+    }
+
+    @Test
     public void shouldConvertAnyValue() {
         String name = "AnyValue";
 

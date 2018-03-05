@@ -11,7 +11,7 @@ public class AssertVariableDefinitionFactory {
     }
 
     public StatementDefinition get(FieldDefinition field) {
-        if (field.hasType(boolean.class)) {
+        if (field.isBoolean()) {
             return new AssertBooleanVariableDefinition(dtoClassName, field);
         }
         return new AssertVariableDefinition(dtoClassName, field);

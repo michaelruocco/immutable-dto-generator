@@ -1,51 +1,43 @@
 package uk.co.mruoc.code;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 public class AssignVariableDefinitionFactory {
 
     public StatementDefinition get(FieldDefinition field) {
-        if (field.hasType(String.class)) {
+        if (field.isString()) {
             return new AssignStringVariableDefinition(field);
 
-        } else if (field.hasType(BigDecimal.class)) {
+        } else if (field.isBigDecimal()) {
             return new AssignBigDecimalVariableDefinition(field);
 
-        } else if (field.hasType(int.class) || field.hasType(Integer.class)) {
+        } else if (field.isInt()) {
             return new AssignNumericVariableDefinition(field);
 
-        } else if (field.hasType(long.class) || field.hasType(Long.class)) {
+        } else if (field.isLong()) {
+            return new AssignLongVariableDefinition(field);
+
+        } else if (field.isFloat()) {
+            return new AssignFloatVariableDefinition(field);
+
+        } else if (field.isDouble()) {
+            return new AssignDoubleVariableDefinition(field);
+
+        } else if (field.isShort()) {
             return new AssignNumericVariableDefinition(field);
 
-        } else if (field.hasType(float.class) || field.hasType(Float.class)) {
+        } else if (field.isByte()) {
             return new AssignNumericVariableDefinition(field);
 
-        } else if (field.hasType(double.class) || field.hasType(Double.class)) {
-            return new AssignNumericVariableDefinition(field);
-
-        } else if (field.hasType(short.class) || field.hasType(Short.class)) {
-            return new AssignNumericVariableDefinition(field);
-
-        } else if (field.hasType(byte.class) || field.hasType(Byte.class)) {
-            return new AssignNumericVariableDefinition(field);
-
-        } else if (field.hasType(boolean.class) || field.hasType(Boolean.class)) {
+        } else if (field.isBoolean()) {
             return new AssignBooleanStatementDefinition(field);
 
-        } else if (field.hasType(char.class) || field.hasType(Character.class)) {
+        } else if (field.isChar()) {
             return new AssignCharVariableDefinition(field);
 
-        } else if (field.hasType(LocalDate.class)) {
+        } else if (field.isLocalDate()) {
             return new AssignLocalDateVariableDefinition(field);
 
-        } else if (field.hasType(LocalDateTime.class)) {
+        } else if (field.isLocalDateTime()) {
             return new AssignLocalDateTimeVariableDefinition(field);
-
-        } else if (field.typeHasPublicNoArgumentConstructor()) {
-            return new AssignObjectVariableDefinition(field);
-
         }
 
         return new AssignMockedObjectVariableDefinition(field);

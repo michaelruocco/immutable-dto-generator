@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
+import static uk.co.mruoc.code.StringToPrimitiveConverter.*;
+
 public class TreeNode {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TreeNode.class);
@@ -48,6 +50,9 @@ public class TreeNode {
         }
         if (hasArrayValue()) {
             return arrayValueToTypeName();
+        }
+        if (isPrimitive(value)) {
+            return toPrimitiveType(value);
         }
         return ClassName.bestGuess(value);
     }
