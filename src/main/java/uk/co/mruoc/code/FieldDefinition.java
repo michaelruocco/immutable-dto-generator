@@ -1,20 +1,11 @@
 package uk.co.mruoc.code;
 
-import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.TypeName;
-
-//import java.lang.reflect.Type;
-//import java.util.stream.Stream;
 
 public class FieldDefinition {
 
-    private static final ClassName BIG_DECIMAL = ClassName.get("java.math", "BigDecimal");
-    private static final ClassName STRING = ClassName.get("java.lang", "String");
-    private static final ClassName LOCAL_DATE = ClassName.get("java.time", "LocalDate");
-    private static final ClassName LOCAL_DATE_TIME = ClassName.get("java.time", "LocalDateTime");
-
     private final String name;
-    private final TypeName type;
+    private final FieldType fieldType;
 
     public FieldDefinition(String name, Class<?> type) {
         this(name, type.getTypeName());
@@ -26,7 +17,7 @@ public class FieldDefinition {
 
     public FieldDefinition(String name, TypeName type) {
         this.name = name;
-        this.type = type;
+        this.fieldType = new FieldType(type);
     }
 
     public String getName() {
@@ -34,71 +25,71 @@ public class FieldDefinition {
     }
 
     public TypeName getType() {
-        return type;
+        return fieldType.getType();
+    }
+
+    public TypeName getInstanceType() {
+        return fieldType.getInstanceType();
     }
 
     public boolean isString() {
-        return hasType(STRING);
+        return fieldType.isString();
     }
 
     public boolean isBigDecimal() {
-        return hasType(BIG_DECIMAL);
+        return fieldType.isBigDecimal();
     }
 
     public boolean isLocalDate() {
-        return hasType(LOCAL_DATE);
+        return fieldType.isLocalDate();
     }
 
     public boolean isLocalDateTime() {
-        return hasType(LOCAL_DATE_TIME);
+        return fieldType.isLocalDateTime();
     }
 
     public boolean isBoolean() {
-        return hasPrimitiveType(TypeName.BOOLEAN);
+        return fieldType.isBoolean();
     }
 
     public boolean isInt() {
-        return hasPrimitiveType(TypeName.INT);
+        return fieldType.isInt();
     }
 
     public boolean isLong() {
-        return hasPrimitiveType(TypeName.LONG);
+        return fieldType.isLong();
     }
 
     public boolean isFloat() {
-        return hasPrimitiveType(TypeName.FLOAT);
+        return fieldType.isFloat();
     }
 
     public boolean isDouble() {
-        return hasPrimitiveType(TypeName.DOUBLE);
+        return fieldType.isDouble();
     }
 
     public boolean isShort() {
-        return hasPrimitiveType(TypeName.SHORT);
+        return fieldType.isShort();
     }
 
     public boolean isByte() {
-        return hasPrimitiveType(TypeName.BYTE);
+        return fieldType.isByte();
     }
 
     public boolean isChar() {
-        return hasPrimitiveType(TypeName.CHAR);
+        return fieldType.isChar();
     }
 
     public boolean isPrimitive() {
-        return type.isPrimitive();
+        return fieldType.isPrimitive();
     }
 
-    private boolean hasType(TypeName otherType) {
-        return otherType.toString().equals(type.toString());
+    public boolean instanceTypeHasPublicNoArgumentConstructor() {
+        return fieldType.instanceTypeHasPublicNoArgumentConstructor();
     }
 
-    private boolean hasPrimitiveType(TypeName otherType) {
-        return hasType(otherType) || hasType(otherType.box());
+    public boolean isGenericCollection() {
+        return fieldType.isGenericCollection();
     }
-
-    //public boolean typeHasPublicNoArgumentConstructor() {
-    //    return Stream.of(type.getConstructors()).anyMatch((c) -> c.getParameterCount() == 0);
-    //}
 
 }
