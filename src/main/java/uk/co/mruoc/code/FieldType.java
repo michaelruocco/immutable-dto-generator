@@ -13,6 +13,7 @@ public class FieldType {
     private static final ClassName STRING = ClassName.get("java.lang", "String");
     private static final ClassName LOCAL_DATE = ClassName.get("java.time", "LocalDate");
     private static final ClassName LOCAL_DATE_TIME = ClassName.get("java.time", "LocalDateTime");
+    private static final TypeName DATE = ClassName.get("java.util", "Date");
 
     private final TypeName type;
 
@@ -30,6 +31,10 @@ public class FieldType {
 
     public boolean isBigDecimal() {
         return hasType(BIG_DECIMAL);
+    }
+
+    public boolean isDate() {
+        return hasType(DATE);
     }
 
     public boolean isLocalDate() {

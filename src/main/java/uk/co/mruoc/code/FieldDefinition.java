@@ -7,12 +7,12 @@ public class FieldDefinition {
     private final String name;
     private final FieldType fieldType;
 
-    public FieldDefinition(String name, Class<?> type) {
-        this(name, type.getTypeName());
-    }
-
     public FieldDefinition(String name, String typeString) {
         this(name, StringToTypeNameConverter.toTypeName(typeString));
+    }
+
+    public FieldDefinition(String name, Class<?> type) {
+        this(name, type.getTypeName());
     }
 
     public FieldDefinition(String name, TypeName type) {
@@ -38,6 +38,10 @@ public class FieldDefinition {
 
     public boolean isBigDecimal() {
         return fieldType.isBigDecimal();
+    }
+
+    public boolean isDate() {
+        return fieldType.isDate();
     }
 
     public boolean isLocalDate() {
