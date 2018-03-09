@@ -4,7 +4,7 @@ public class AssignStringVariableDefinition implements StatementDefinition {
 
     private final FieldDefinition field;
 
-    public AssignStringVariableDefinition(FieldDefinition field) {
+    AssignStringVariableDefinition(FieldDefinition field) {
         this.field = field;
     }
 

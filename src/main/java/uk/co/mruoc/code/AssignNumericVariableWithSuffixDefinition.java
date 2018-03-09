@@ -5,7 +5,7 @@ public class AssignNumericVariableWithSuffixDefinition implements StatementDefin
     private final FieldDefinition field;
     private final String suffix;
 
-    public AssignNumericVariableWithSuffixDefinition(FieldDefinition field, String suffix) {
+    AssignNumericVariableWithSuffixDefinition(FieldDefinition field, String suffix) {
         this.field = field;
         this.suffix = suffix;
     }
