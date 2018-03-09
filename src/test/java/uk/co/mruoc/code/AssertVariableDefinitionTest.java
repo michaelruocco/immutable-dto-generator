@@ -11,7 +11,7 @@ public class AssertVariableDefinitionTest {
     private final FieldDefinition field = new FieldDefinition("variable", "boolean");
     private final StatementBuilder builder = new StatementBuilder();
 
-    private final AssertVariableDefinition definition = new AssertVariableDefinition(className, field);
+    private final StatementDefinition definition = new AssertVariableDefinition(className, field);
 
     @Test
     public void shouldReturnFormat() {

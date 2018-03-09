@@ -2,11 +2,11 @@ package uk.co.mruoc.code;
 
 import java.util.Random;
 
-public class AssignBooleanStatementDefinition implements StatementDefinition {
+public class AssignBooleanVariableDefinition implements StatementDefinition {
 
     private final FieldDefinition field;
 
-    public AssignBooleanStatementDefinition(FieldDefinition field) {
+    public AssignBooleanVariableDefinition(FieldDefinition field) {
         this.field = field;
     }
 

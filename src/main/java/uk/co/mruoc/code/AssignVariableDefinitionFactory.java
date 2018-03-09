@@ -28,7 +28,7 @@ public class AssignVariableDefinitionFactory {
             return new AssignNumericVariableDefinition(field);
 
         } else if (field.isBoolean()) {
-            return new AssignBooleanStatementDefinition(field);
+            return new AssignBooleanVariableDefinition(field);
 
         } else if (field.isChar()) {
             return new AssignCharVariableDefinition(field);
