@@ -35,7 +35,7 @@ public class DefaultGenerationParams implements GenerationParams {
 
     @Override
     public String getTestClassName() {
-        if (StringUtils.isEmpty(builderClassName)) {
+        if (StringUtils.isEmpty(testClassName)) {
             return dtoClassName + "Test";
         }
         return testClassName;

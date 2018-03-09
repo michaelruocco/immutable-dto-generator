@@ -7,20 +7,22 @@ import uk.co.mruoc.properties.FileContentLoader;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BuilderGeneratorTest {
+public class DtoGeneratorTest {
 
     private final FileContentLoader contentLoader = new ClasspathFileContentLoader();
     private final GenerationParams params = new TestGenerationParams();
 
-    private final Generator generator = new BuilderGenerator(params);
+    private final Generator generator = new DtoGenerator(params);
 
     @Test
     public void shouldGenerateBuilderJavaFile()  {
-        String expectedContent = contentLoader.loadContent("/expected-builder-java.txt");
+        String expectedContent = contentLoader.loadContent("/expected-dto-java.txt");
         JavaFile file = generator.generate();
         String content = JavaFileContentExtractor.extractContent(file);
 
         assertThat(content).isEqualTo(expectedContent);
     }
+
+
 
 }

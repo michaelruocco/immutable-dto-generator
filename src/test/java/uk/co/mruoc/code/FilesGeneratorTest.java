@@ -1,13 +1,14 @@
 package uk.co.mruoc.code;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
-import java.math.BigDecimal;
+import java.io.File;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class FilesGeneratorTest {
 
@@ -19,7 +20,21 @@ public class FilesGeneratorTest {
 
     @Test
     public void generateFiles() {
-        generator.generate();
+        String basePath = "src/main/java/uk/co/mruoc/dto/";
+        String dtoPath =  basePath + "CustomerDto.java";
+        String builderPath = basePath + "CustomerDtoBuilder.java";
+        String testPath =  "src/test/java/uk/co/mruoc/dto/CustomerDtoTest.java";
+
+        try {
+            generator.generate();
+
+            assertThat(Files.exists(Paths.get(dtoPath))).isTrue();
+            assertThat(Files.exists(Paths.get(builderPath))).isTrue();
+            assertThat(Files.exists(Paths.get(testPath))).isTrue();
+        } finally {
+            FileUtils.deleteQuietly(new File(dtoPath).getParentFile());
+            FileUtils.deleteQuietly(new File(testPath).getParentFile());
+        }
     }
 
 }

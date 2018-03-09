@@ -1,0 +1,197 @@
+package uk.co.mruoc.dto;
+
+import java.lang.Byte;
+import java.lang.Double;
+import java.lang.Float;
+import java.lang.Integer;
+import java.lang.Long;
+import java.lang.Object;
+import java.lang.Short;
+import java.lang.String;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import uk.co.mruoc.code.MyCustomClass;
+
+public class CustomerDto {
+  private long longValue;
+
+  private Long boxedLongValue;
+
+  private List<MyCustomClass> list1;
+
+  private Map<String, MyCustomClass> map1;
+
+  private List<Map<String, MyCustomClass>> listMap1;
+
+  private long id;
+
+  private Double id1;
+
+  private Float id2;
+
+  private Byte id3;
+
+  private Short id4;
+
+  private String firstName;
+
+  private String lastName;
+
+  private LocalDate dateOfBirth;
+
+  private boolean premium;
+
+  private BigDecimal balance;
+
+  private double doubleVal;
+
+  private Integer integerVal;
+
+  private float floatVal;
+
+  private Short shortVal;
+
+  private char charVal;
+
+  private Byte byteVal;
+
+  private Object object;
+
+  private Date date;
+
+  private LocalDateTime localDateTime;
+
+  private MyCustomClass customClass;
+
+  public CustomerDto(CustomerDtoBuilder builder) {
+    this.longValue = builder.getLongValue();
+    this.boxedLongValue = builder.getBoxedLongValue();
+    this.list1 = builder.getList1();
+    this.map1 = builder.getMap1();
+    this.listMap1 = builder.getListMap1();
+    this.id = builder.getId();
+    this.id1 = builder.getId1();
+    this.id2 = builder.getId2();
+    this.id3 = builder.getId3();
+    this.id4 = builder.getId4();
+    this.firstName = builder.getFirstName();
+    this.lastName = builder.getLastName();
+    this.dateOfBirth = builder.getDateOfBirth();
+    this.premium = builder.isPremium();
+    this.balance = builder.getBalance();
+    this.doubleVal = builder.getDoubleVal();
+    this.integerVal = builder.getIntegerVal();
+    this.floatVal = builder.getFloatVal();
+    this.shortVal = builder.getShortVal();
+    this.charVal = builder.getCharVal();
+    this.byteVal = builder.getByteVal();
+    this.object = builder.getObject();
+    this.date = builder.getDate();
+    this.localDateTime = builder.getLocalDateTime();
+    this.customClass = builder.getCustomClass();
+  }
+
+  public long getLongValue() {
+    return longValue;
+  }
+
+  public Long getBoxedLongValue() {
+    return boxedLongValue;
+  }
+
+  public List<MyCustomClass> getList1() {
+    return list1;
+  }
+
+  public Map<String, MyCustomClass> getMap1() {
+    return map1;
+  }
+
+  public List<Map<String, MyCustomClass>> getListMap1() {
+    return listMap1;
+  }
+
+  public long getId() {
+    return id;
+  }
+
+  public Double getId1() {
+    return id1;
+  }
+
+  public Float getId2() {
+    return id2;
+  }
+
+  public Byte getId3() {
+    return id3;
+  }
+
+  public Short getId4() {
+    return id4;
+  }
+
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public String getLastName() {
+    return lastName;
+  }
+
+  public LocalDate getDateOfBirth() {
+    return dateOfBirth;
+  }
+
+  public boolean isPremium() {
+    return premium;
+  }
+
+  public BigDecimal getBalance() {
+    return balance;
+  }
+
+  public double getDoubleVal() {
+    return doubleVal;
+  }
+
+  public Integer getIntegerVal() {
+    return integerVal;
+  }
+
+  public float getFloatVal() {
+    return floatVal;
+  }
+
+  public Short getShortVal() {
+    return shortVal;
+  }
+
+  public char getCharVal() {
+    return charVal;
+  }
+
+  public Byte getByteVal() {
+    return byteVal;
+  }
+
+  public Object getObject() {
+    return object;
+  }
+
+  public Date getDate() {
+    return date;
+  }
+
+  public LocalDateTime getLocalDateTime() {
+    return localDateTime;
+  }
+
+  public MyCustomClass getCustomClass() {
+    return customClass;
+  }
+}
