@@ -16,7 +16,6 @@ public class BuilderGenerator implements Generator {
     private final ClassName builderClassName;
     private final List<FieldDefinition> fieldDefinitions;
 
-
     public BuilderGenerator(GenerationParams builder) {
         this.packageName = builder.getPackageName();
         this.dtoClassName = ClassName.get(packageName, builder.getDtoClassName());
