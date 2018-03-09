@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.catchThrowable;
+import static uk.co.mruoc.code.StringToTypeNameConverter.toTypeName;
 
 public class FieldTypeTest {
 

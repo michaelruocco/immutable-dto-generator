@@ -8,7 +8,6 @@ import java.util.List;
 
 public class DefaultGenerationParams implements GenerationParams {
 
-    private final StringToTypeNameConverter typeNameConverter = new StringToTypeNameConverter();
     private final List<FieldDefinition> fieldDefinitions = new ArrayList<>();
 
     private String packageName;

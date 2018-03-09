@@ -17,7 +17,7 @@ public class FieldType {
 
     private final TypeName type;
 
-    public FieldType(TypeName type) {
+    FieldType(TypeName type) {
         this.type = type;
     }
 
@@ -91,7 +91,7 @@ public class FieldType {
             Class<?> clazz = Class.forName(className);
             return Stream.of(clazz.getConstructors()).anyMatch((c) -> c.getParameterCount() == 0);
         } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            throw new IllegalArgumentException(type.toString(), e);
         }
     }
 

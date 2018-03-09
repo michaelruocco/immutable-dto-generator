@@ -6,7 +6,7 @@ public class AssertVariableDefinitionFactory {
 
     private final ClassName dtoClassName;
 
-    public AssertVariableDefinitionFactory(ClassName dtoClassName) {
+    AssertVariableDefinitionFactory(ClassName dtoClassName) {
         this.dtoClassName = dtoClassName;
     }
 

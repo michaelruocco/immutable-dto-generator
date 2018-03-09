@@ -1,10 +1,10 @@
 package uk.co.mruoc.code;
 
-public class AssignLongVariableDefinition extends AssignNumericVariableWithSuffixDefinition {
+class AssignLongVariableDefinition extends AssignNumericVariableWithSuffixDefinition {
 
     private static final String SUFFIX = "L";
 
-    public AssignLongVariableDefinition(FieldDefinition field) {
+    AssignLongVariableDefinition(FieldDefinition field) {
         super(field, SUFFIX);
     }
 

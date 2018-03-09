@@ -4,7 +4,7 @@ public class AssignBigDecimalVariableDefinition implements StatementDefinition {
 
     private final FieldDefinition field;
 
-    public AssignBigDecimalVariableDefinition(FieldDefinition field) {
+    AssignBigDecimalVariableDefinition(FieldDefinition field) {
         this.field = field;
     }
 

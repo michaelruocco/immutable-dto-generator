@@ -5,16 +5,15 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
+import static uk.co.mruoc.code.StringToTypeNameConverter.*;
 
 public class StringToTypeNameConverterTest {
-
-    private final StringToTypeNameConverter converter = new StringToTypeNameConverter();
 
     @Test
     public void shouldConvertInvalidValue() {
         String name = "Invalid-Value";
 
-        Throwable thrown = catchThrowable(() -> converter.toTypeName(name));
+        Throwable thrown = catchThrowable(() -> toTypeName(name));
 
         assertThat(thrown)
                 .isInstanceOf(IllegalArgumentException.class)
@@ -25,7 +24,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertPrimitiveIntValue() {
         String name = "int";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -34,7 +33,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertPrimitiveByteValue() {
         String name = "byte";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -43,7 +42,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertPrimitiveShortValue() {
         String name = "short";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -52,7 +51,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertPrimitiveLongValue() {
         String name = "long";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -61,7 +60,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertPrimitiveFloatValue() {
         String name = "float";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -70,7 +69,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertPrimitiveDoubleValue() {
         String name = "double";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -79,7 +78,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertPrimitiveBooleanValue() {
         String name = "boolean";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -88,7 +87,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertPrimitiveCharValue() {
         String name = "char";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -97,7 +96,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertAnyValue() {
         String name = "AnyValue";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -106,7 +105,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertString() {
         String name = "String";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -115,7 +114,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertFullyQualifiedString() {
         String name = "java.lang.String";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -124,7 +123,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertArray() {
         String name = "String[]";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -133,7 +132,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertListWithGenerics() {
         String name = "List<String>";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -142,7 +141,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertNestedListsWithGenerics() {
         String name = "List<List<String>>";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -151,7 +150,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertDoubleNestedListsWithGenerics() {
         String name = "List<List<List<String>>>";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -160,7 +159,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertMapWithGenerics() {
         String name = "Map<String, String>";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -169,7 +168,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertMapWithDifferentGenerics() {
         String name = "Map<String, Object>";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -178,7 +177,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertListOfMapsWithGenerics() {
         String name = "List<Map<String, String>>";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -187,7 +186,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertListOfMapsWithDifferentGenerics() {
         String name = "List<Map<String, Object>>";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -196,7 +195,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertMapOfListsWithGenerics() {
         String name = "Map<String, List<String>>";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -205,7 +204,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertMapOfListsForKeyWithGenerics() {
         String name = "Map<List<String>, Object>";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -214,7 +213,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertMapOfListsOfListsWithGenerics() {
         String name = "Map<List<String>, List<Object>>";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }
@@ -223,7 +222,7 @@ public class StringToTypeNameConverterTest {
     public void shouldConvertMapOfMapsWithGenerics() {
         String name = "Map<Map<String, Object>, Map<Object, String>>";
 
-        TypeName type = converter.toTypeName(name);
+        TypeName type = toTypeName(name);
 
         assertThat(type.toString()).isEqualTo(name);
     }

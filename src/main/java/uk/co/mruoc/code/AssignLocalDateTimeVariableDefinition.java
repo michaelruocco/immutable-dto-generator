@@ -1,12 +1,10 @@
 package uk.co.mruoc.code;
 
-import java.time.LocalDateTime;
-
 public class AssignLocalDateTimeVariableDefinition implements StatementDefinition {
 
     private final FieldDefinition field;
 
-    public AssignLocalDateTimeVariableDefinition(FieldDefinition field) {
+    AssignLocalDateTimeVariableDefinition(FieldDefinition field) {
         this.field = field;
     }
 
@@ -17,18 +15,17 @@ public class AssignLocalDateTimeVariableDefinition implements StatementDefinitio
 
     @Override
     public Object[] getArgs() {
-        LocalDateTime now = LocalDateTime.now();
         return new Object[] {
                 field.getType(),
                 field.getName(),
                 field.getType(),
-                now.getYear(),
-                now.getMonthValue(),
-                now.getDayOfMonth(),
-                now.getHour(),
-                now.getMinute(),
-                now.getSecond(),
-                now.getNano()
+                2018,
+                1,
+                1,
+                12,
+                0,
+                0,
+                0
         };
     }
 

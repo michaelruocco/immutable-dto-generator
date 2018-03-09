@@ -6,7 +6,7 @@ public class AssignMockedObjectVariableDefinition implements StatementDefinition
 
     private final FieldDefinition field;
 
-    public AssignMockedObjectVariableDefinition(FieldDefinition field) {
+    AssignMockedObjectVariableDefinition(FieldDefinition field) {
         this.field = field;
     }
 

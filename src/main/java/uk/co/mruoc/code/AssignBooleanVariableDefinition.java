@@ -6,7 +6,7 @@ public class AssignBooleanVariableDefinition implements StatementDefinition {
 
     private final FieldDefinition field;
 
-    public AssignBooleanVariableDefinition(FieldDefinition field) {
+    AssignBooleanVariableDefinition(FieldDefinition field) {
         this.field = field;
     }
 

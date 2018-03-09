@@ -4,7 +4,7 @@ public class AssignNumericVariableDefinition implements StatementDefinition {
 
     private final FieldDefinition field;
 
-    public AssignNumericVariableDefinition(FieldDefinition field) {
+    AssignNumericVariableDefinition(FieldDefinition field) {
         this.field = field;
     }
 
