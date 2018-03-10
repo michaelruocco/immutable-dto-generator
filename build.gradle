@@ -10,6 +10,7 @@ apply plugin: 'eclipse'
 apply plugin: 'jacoco'
 apply plugin: 'com.github.kt3k.coveralls'
 apply plugin: 'maven'
+apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
 sourceCompatibility = 1.8
@@ -74,8 +75,8 @@ uploadArchives {
 
             pom.project {
                 packaging 'jar'
-                name 'File Loader'
-                description 'Code library to easily load files and properties from the classpath or file system file'
+                name 'Immutable DTO Generator'
+                description 'Code library to auto-generate code for immutable dto classes'
                 groupId 'com.github.michaelruocco'
                 artifactId 'immutable-dto-generator'
                 version '1.0.0'
