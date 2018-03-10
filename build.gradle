@@ -78,7 +78,7 @@ uploadArchives {
                 description 'Code library to easily load files and properties from the classpath or file system file'
                 groupId 'com.github.michaelruocco'
                 artifactId 'immutable-dto-generator'
-                version '1.0.1'
+                version '1.0.0'
                 url 'https://github.com/michaelruocco/immutable-dto-generator'
 
                 developers {
