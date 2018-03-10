@@ -8,14 +8,14 @@
 This library was created because I wanted to have a go at creating something
 that handled code generation. The idea of this project is that it could be
 used as a potential alternative to something like
-(Project Lombok)[https://projectlombok.org/] which amongst other things,
+[Project Lombok](https://projectlombok.org/) which amongst other things,
 allows you to not have to write (and therefore write tests for) your getter
 and setter methods on your basic DTO / java bean classes.
 
 The project lombok approach works by you writing a class where you simply
 define the list of fields in the class and the rest of the code required
 like the constructors and getters and setters are covered by annotations
-attached to the class. The (Project Lombok)[https://projectlombok.org/]
+attached to the class. The [Project Lombok](https://projectlombok.org/)
 documentation will do a far better job of explaining it than I can, so
 for more details I would recommend that you read the documentation there.
 
@@ -26,12 +26,12 @@ and also so that I could have a go at writing code to generate code, which is
 not something I had done before. The idea is that you can specify where you
 want your generated code to live (source set and package), and what fields
 your class needs to contain, and the library will generate a DTO class,
-a builder (as it only currently supports constructors following the (builder
-pattern)[https://en.wikipedia.org/wiki/Builder_pattern] at present) and
+a builder (as it only currently supports constructors following the [builder
+pattern](https://en.wikipedia.org/wiki/Builder_pattern) at present) and
 a unit test class that will give 100% coverage on the generated classes.
 
 When investigating how to go about generating java code I came across a
-library called (JavaPoet){https://github.com/square/javapoet]. I have been
+library called [JavaPoet](https://github.com/square/javapoet). I have been
 very impresssed with the ease of use of JavaPoet and found it very easy to get
 going with, so if Java code generation is something you are interested in
 I would strongly recommend you check it out in more detail. It is heavily
