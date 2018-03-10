@@ -96,7 +96,7 @@ public class FieldType {
     }
 
     public boolean isGenericCollection() {
-        return CollectionsConverter.isCollectionInterface(type.toString());
+        return isCollectionInterface(type.toString());
     }
 
     private boolean hasType(TypeName otherType) {

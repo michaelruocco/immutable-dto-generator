@@ -1,9 +1,7 @@
 package uk.co.mruoc.code;
 
-import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.TypeName;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

@@ -8,8 +8,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.catchThrowable;
-import static uk.co.mruoc.code.StringToTypeNameConverter.toTypeName;
+import static uk.co.mruoc.code.StringToTypeNameConverter.*;
 
 public class FieldTypeTest {
 
@@ -187,7 +186,7 @@ public class FieldTypeTest {
     }
 
     private FieldType buildType(String type) {
-        return new FieldType(StringToTypeNameConverter.toTypeName(type));
+        return new FieldType(toTypeName(type));
     }
 
 }
