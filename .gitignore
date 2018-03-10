@@ -3,5 +3,3 @@
 build
 out
 *.iml
-src/main/java/uk/co/mruoc/dto/
-src/test/java/uk/co/mruoc/dto/

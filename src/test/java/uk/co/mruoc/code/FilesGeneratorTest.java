@@ -16,7 +16,7 @@ public class FilesGeneratorTest {
     private final Path testSourcePath = Paths.get("src/test/java/");
     private final GenerationParams params = new TestGenerationParams();
 
-    private final FilesGenerator generator = new FilesGenerator(mainSourcePath, testSourcePath, params);
+    private final FilesGenerator generator = new FilesGenerator(mainSourcePath, testSourcePath);
 
     @Test
     public void generateFiles() {
@@ -26,7 +26,7 @@ public class FilesGeneratorTest {
         String testPath =  "src/test/java/uk/co/mruoc/dto/CustomerDtoTest.java";
 
         try {
-            generator.generate();
+            generator.generate(params);
 
             assertThat(Files.exists(Paths.get(dtoPath))).isTrue();
             assertThat(Files.exists(Paths.get(builderPath))).isTrue();

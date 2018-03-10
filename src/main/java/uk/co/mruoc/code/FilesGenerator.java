@@ -13,33 +13,29 @@ public class FilesGenerator {
     private final Path sourceDirectoryPath;
     private final Path testDirectoryPath;
 
-    private final Generator dtoGenerator;
-    private final Generator builderGenerator;
-    private final Generator testGenerator;
-
-    public FilesGenerator(Path sourceDirectoryPath, Path testDirectoryPath, GenerationParams generationParams) {
+    public FilesGenerator(Path sourceDirectoryPath, Path testDirectoryPath) {
         this.sourceDirectoryPath = sourceDirectoryPath;
         this.testDirectoryPath = testDirectoryPath;
-        this.dtoGenerator = new DtoGenerator(generationParams);
-        this.builderGenerator = new BuilderGenerator(generationParams);
-        this.testGenerator = new TestGenerator(generationParams);
     }
 
-    public void generate() {
-        generateDto();
-        generateBuilder();
-        generateTest();
+    public void generate(GenerationParams params) {
+        generateDto(params);
+        generateBuilder(params);
+        generateTest(params);
     }
 
-    private void generateDto() {
+    private void generateDto(GenerationParams generationParams) {
+        Generator dtoGenerator = new DtoGenerator(generationParams);
         generate(dtoGenerator, sourceDirectoryPath);
     }
 
-    private void generateBuilder() {
+    private void generateBuilder(GenerationParams generationParams) {
+        Generator builderGenerator = new BuilderGenerator(generationParams);
         generate(builderGenerator, sourceDirectoryPath);
     }
 
-    private void generateTest() {
+    private void generateTest(GenerationParams generationParams) {
+        Generator testGenerator = new TestGenerator(generationParams);
         generate(testGenerator, testDirectoryPath);
     }
 
