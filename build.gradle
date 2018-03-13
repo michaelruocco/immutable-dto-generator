@@ -25,11 +25,10 @@ dependencies {
     compile 'junit:junit:4.12'
     compile 'org.assertj:assertj-core:3.9.1'
     compile 'org.mockito:mockito-all:1.10.19'
-    compile 'org.slf4j:slf4j-api:1.7.25'
+    compileOnly 'org.slf4j:slf4j-api:1.7.25'
 
     testCompile 'org.slf4j:slf4j-log4j12:1.7.25'
     testCompile 'com.github.michaelruocco:file-loader:3.0.3'
-
 }
 
 jacocoTestReport {
