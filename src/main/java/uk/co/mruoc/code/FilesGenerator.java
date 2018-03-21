@@ -25,7 +25,7 @@ public class FilesGenerator {
     }
 
     private void generateDto(GenerationParams generationParams) {
-        Generator dtoGenerator = new DtoGenerator(generationParams);
+        Generator dtoGenerator = new DefaultDtoGenerator(generationParams);
         generate(dtoGenerator, sourceDirectoryPath);
     }
 

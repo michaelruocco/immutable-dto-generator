@@ -17,55 +17,55 @@ import java.util.Map;
 import uk.co.mruoc.code.MyCustomClass;
 
 public class CustomerDto {
-  private long longValue;
+  private final long longValue;
 
-  private Long boxedLongValue;
+  private final Long boxedLongValue;
 
-  private List<MyCustomClass> list1;
+  private final List<MyCustomClass> list1;
 
-  private Map<String, MyCustomClass> map1;
+  private final Map<String, MyCustomClass> map1;
 
-  private List<Map<String, MyCustomClass>> listMap1;
+  private final List<Map<String, MyCustomClass>> listMap1;
 
-  private long id;
+  private final long id;
 
-  private Double id1;
+  private final Double id1;
 
-  private Float id2;
+  private final Float id2;
 
-  private Byte id3;
+  private final Byte id3;
 
-  private Short id4;
+  private final Short id4;
 
-  private String firstName;
+  private final String firstName;
 
-  private String lastName;
+  private final String lastName;
 
-  private LocalDate dateOfBirth;
+  private final LocalDate dateOfBirth;
 
-  private boolean premium;
+  private final boolean premium;
 
-  private BigDecimal balance;
+  private final BigDecimal balance;
 
-  private double doubleVal;
+  private final double doubleVal;
 
-  private Integer integerVal;
+  private final Integer integerVal;
 
-  private float floatVal;
+  private final float floatVal;
 
-  private Short shortVal;
+  private final Short shortVal;
 
-  private char charVal;
+  private final char charVal;
 
-  private Byte byteVal;
+  private final Byte byteVal;
 
-  private Object object;
+  private final Object object;
 
-  private Date date;
+  private final Date date;
 
-  private LocalDateTime localDateTime;
+  private final LocalDateTime localDateTime;
 
-  private MyCustomClass customClass;
+  private final MyCustomClass customClass;
 
   public CustomerDto(CustomerDtoBuilder builder) {
     this.longValue = builder.getLongValue();
