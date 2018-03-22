@@ -14,4 +14,6 @@ public interface GenerationParams {
 
     List<FieldDefinition> getFieldDefinitions();
 
+    boolean isApiClass();
+
 }

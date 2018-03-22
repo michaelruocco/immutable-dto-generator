@@ -24,9 +24,13 @@ public class FilesGenerator {
         generateTest(params);
     }
 
-    private void generateDto(GenerationParams generationParams) {
-        Generator dtoGenerator = new DefaultDtoGenerator(generationParams);
+    private void generateDto(GenerationParams params) {
+        Generator dtoGenerator = createDtoGenerator(params);
         generate(dtoGenerator, sourceDirectoryPath);
+    }
+
+    private Generator createDtoGenerator(GenerationParams params) {
+        return DtoGeneratorFactory.build(params);
     }
 
     private void generateBuilder(GenerationParams generationParams) {

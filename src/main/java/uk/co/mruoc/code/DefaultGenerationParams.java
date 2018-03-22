@@ -14,6 +14,7 @@ public class DefaultGenerationParams implements GenerationParams {
     private String dtoClassName;
     private String builderClassName;
     private String testClassName;
+    private boolean apiClass;
 
     @Override
     public String getPackageName() {
@@ -46,6 +47,11 @@ public class DefaultGenerationParams implements GenerationParams {
         return fieldDefinitions;
     }
 
+    @Override
+    public boolean isApiClass() {
+        return apiClass;
+    }
+
     public DefaultGenerationParams setPackageName(String packageName) {
         this.packageName = packageName;
         return this;
@@ -63,6 +69,11 @@ public class DefaultGenerationParams implements GenerationParams {
 
     public DefaultGenerationParams setTestClassName(String testClassName) {
         this.testClassName = testClassName;
+        return this;
+    }
+
+    public DefaultGenerationParams setApiClass(boolean apiClass) {
+        this.apiClass = apiClass;
         return this;
     }
 

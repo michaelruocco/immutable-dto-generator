@@ -5,9 +5,9 @@ import com.squareup.javapoet.MethodSpec;
 import java.util.Arrays;
 import java.util.Collection;
 
-public class JacksonDtoGenerator extends BaseDtoGenerator {
+public class ApiDtoGenerator extends BaseDtoGenerator {
 
-    public JacksonDtoGenerator(GenerationParams params) {
+    public ApiDtoGenerator(GenerationParams params) {
         super(params, buildConstructors(params), new DefaultFieldDecorator(), new JacksonMethodDecorator());
     }
 
