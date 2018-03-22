@@ -7,8 +7,8 @@ import static javax.lang.model.element.Modifier.*;
 public class FinalFieldDecorator implements FieldDecorator {
 
     @Override
-    public Builder decorate(Builder fieldSpec) {
-        return fieldSpec.addModifiers(PRIVATE, FINAL);
+    public Builder decorate(Builder builder) {
+        return builder.addModifiers(PRIVATE, FINAL);
     }
 
 }

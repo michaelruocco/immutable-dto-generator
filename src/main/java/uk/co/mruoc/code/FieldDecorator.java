@@ -4,6 +4,6 @@ import com.squareup.javapoet.FieldSpec.Builder;
 
 public interface FieldDecorator {
 
-    Builder decorate(Builder fieldSpec);
+    Builder decorate(Builder builder);
 
 }

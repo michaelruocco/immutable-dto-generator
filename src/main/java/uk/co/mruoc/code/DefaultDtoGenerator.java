@@ -8,7 +8,7 @@ import java.util.Collections;
 public class DefaultDtoGenerator extends BaseDtoGenerator {
 
     public DefaultDtoGenerator(GenerationParams params) {
-        super(params, buildConstructors(params), new FinalFieldDecorator());
+        super(params, buildConstructors(params), new FinalFieldDecorator(), new NoOpMethodDecorator());
     }
 
     private static Collection<MethodSpec> buildConstructors(GenerationParams params) {

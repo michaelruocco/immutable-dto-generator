@@ -8,7 +8,7 @@ import java.util.Collection;
 public class JacksonDtoGenerator extends BaseDtoGenerator {
 
     public JacksonDtoGenerator(GenerationParams params) {
-        super(params, buildConstructors(params), new DefaultFieldDecorator());
+        super(params, buildConstructors(params), new DefaultFieldDecorator(), new JacksonMethodDecorator());
     }
 
     private static Collection<MethodSpec> buildConstructors(GenerationParams params) {

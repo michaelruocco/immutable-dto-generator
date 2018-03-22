@@ -1,5 +1,6 @@
 package uk.co.mruoc.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.lang.Byte;
 import java.lang.Double;
 import java.lang.Float;
@@ -99,102 +100,127 @@ public class CustomerDto {
     this.customClass = builder.getCustomClass();
   }
 
+  @JsonProperty
   public long getLongValue() {
     return longValue;
   }
 
+  @JsonProperty
   public Long getBoxedLongValue() {
     return boxedLongValue;
   }
 
+  @JsonProperty
   public List<MyCustomClass> getList1() {
     return list1;
   }
 
+  @JsonProperty
   public Map<String, MyCustomClass> getMap1() {
     return map1;
   }
 
+  @JsonProperty
   public List<Map<String, MyCustomClass>> getListMap1() {
     return listMap1;
   }
 
+  @JsonProperty
   public long getId() {
     return id;
   }
 
+  @JsonProperty
   public Double getId1() {
     return id1;
   }
 
+  @JsonProperty
   public Float getId2() {
     return id2;
   }
 
+  @JsonProperty
   public Byte getId3() {
     return id3;
   }
 
+  @JsonProperty
   public Short getId4() {
     return id4;
   }
 
+  @JsonProperty
   public String getFirstName() {
     return firstName;
   }
 
+  @JsonProperty
   public String getLastName() {
     return lastName;
   }
 
+  @JsonProperty
   public LocalDate getDateOfBirth() {
     return dateOfBirth;
   }
 
+  @JsonProperty
   public boolean isPremium() {
     return premium;
   }
 
+  @JsonProperty
   public BigDecimal getBalance() {
     return balance;
   }
 
+  @JsonProperty
   public double getDoubleVal() {
     return doubleVal;
   }
 
+  @JsonProperty
   public Integer getIntegerVal() {
     return integerVal;
   }
 
+  @JsonProperty
   public float getFloatVal() {
     return floatVal;
   }
 
+  @JsonProperty
   public Short getShortVal() {
     return shortVal;
   }
 
+  @JsonProperty
   public char getCharVal() {
     return charVal;
   }
 
+  @JsonProperty
   public Byte getByteVal() {
     return byteVal;
   }
 
+  @JsonProperty
   public Object getObject() {
     return object;
   }
 
+  @JsonProperty
   public Date getDate() {
     return date;
   }
 
+  @JsonProperty
   public LocalDateTime getLocalDateTime() {
     return localDateTime;
   }
 
+  @JsonProperty
   public MyCustomClass getCustomClass() {
     return customClass;
   }
