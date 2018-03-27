@@ -106,6 +106,5 @@ public class FieldType {
     private boolean hasPrimitiveType(TypeName otherType) {
         return hasType(otherType) || hasType(otherType.box());
     }
-
     
 }
