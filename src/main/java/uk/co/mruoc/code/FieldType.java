@@ -107,4 +107,5 @@ public class FieldType {
         return hasType(otherType) || hasType(otherType.box());
     }
 
+    
 }
