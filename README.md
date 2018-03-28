@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/michaelruocco/immutable-dto-generator.svg?branch=master)](https://travis-ci.org/michaelruocco/immutable-dto-generator)
 [![Coverage Status](https://coveralls.io/repos/github/michaelruocco/immutable-dto-generator/badge.svg?branch=master)](https://coveralls.io/github/michaelruocco/immutable-dto-generator?branch=master)
-[![Maven Central](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/com/github/michaelruocco/immutable-dto-generator/maven-metadata.xml.svg)](http://repo1.maven.org/maven2/com/github/michaelruocco/immutable-dto-generator/1.0.0)
+[![Maven Central](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/com/github/michaelruocco/immutable-dto-generator/maven-metadata.xml.svg)](http://repo1.maven.org/maven2/com/github/michaelruocco/immutable-dto-generator)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/55c9939f55a94822864280ea0114bfb0)](https://www.codacy.com/app/michaelruocco/immutable-dto-generator?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=michaelruocco/immutable-dto-generator&amp;utm_campaign=Badge_Grade)
 
 This library was created because I wanted to have a go at creating something
